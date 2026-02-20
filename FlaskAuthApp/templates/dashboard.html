@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block body %}
+    
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="card shadow">
+                    <div class="card-header bg-primary text-white">
+                        <h2 class="mb-0">Dashboard</h2>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Welcome, {{user.name}}! 👋</h3>
+                        <hr>
+                        <h5 class="mb-3">Your Account Information:</h5>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p><strong>Name:</strong> {{user.name}}</p>
+                                <p><strong>Email:</strong> {{user.email}}</p>
+                                <p><strong>User ID:</strong> #{{user.id}}</p>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="alert alert-success" role="alert">
+                                    <h6 class="alert-heading">✓ Account Active</h6>
+                                    <p class="mb-0">Your account is successfully logged in and active.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="mt-4">
+                            <h5>Quick Actions:</h5>
+                            <div class="d-grid gap-2 d-md-flex">
+                                <a href="/dashboard" class="btn btn-outline-primary">Refresh Dashboard</a>
+                                <a href="/logout" class="btn btn-danger">Logout</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer text-muted">
+                        Last accessed: {{ "now" | default("Today") }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock body %}
